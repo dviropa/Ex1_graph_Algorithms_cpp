@@ -1,0 +1,12 @@
+# ninja log v6
+8	432	7651410195869948	build.ninja	ab843b1ceb800fdd
+193	1410	7648612930100051	CMakeFiles/untitled2.dir/Graph.cpp.obj	a125bd02f51681f2
+207	1376	7648612930250626	CMakeFiles/untitled2.dir/adesenlist.cpp.obj	893fe863693d8c6a
+213	1267	7648612930310375	CMakeFiles/untitled2.dir/Stack.cpp.obj	36453d715d61694a
+201	1419	7648612930187710	CMakeFiles/untitled2.dir/Queue.cpp.obj	d65ff2252d41ede4
+175	1369	7648612929940611	CMakeFiles/untitled2.dir/main.cpp.obj	cb4d2766df1207a0
+33	105	7644583550318396	CMakeFiles/untitled2.dir/Edge.cpp.obj	a4635c0959c60153
+197	1401	7648612930146006	CMakeFiles/untitled2.dir/Algorithms.cpp.obj	3b7c2ab95e010e89
+1268	1454	7648612940857419	CMakeFiles/untitled2.dir/UnionFind.cpp.obj	71b2bafc26d0b394
+1401	2127	7648612942188912	CMakeFiles/untitled2.dir/auterNode.cpp.obj	ae53565a02c7b7c2
+1376	2157	7648612941942705	CMakeFiles/untitled2.dir/inerNode.cpp.obj	3e4e005820568a90
