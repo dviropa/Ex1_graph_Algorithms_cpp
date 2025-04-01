@@ -1,11 +1,11 @@
 #include "Algorithms.h"
 #include <iostream>
-
+#include <climits>
 namespace graph {
 
 Graph Algorithms::bfs(Graph g, int s) {
     const int MAX = g.get_size();
-    bool visited[MAX] = {false};
+    bool *visited = new bool[MAX]{false};
 
     if (s < 0 || s >= MAX) {
         std::cout << "Invalid start node\n";
@@ -107,7 +107,7 @@ Graph Algorithms::dfs(Graph g, int x) {
     const int MAX = g.get_size();
     int distance[MAX];
     int parent[MAX];
-    bool visited[MAX] = {false};
+    bool *visited = new bool[MAX]{false};
     int INF = INT_MAX;
 
     for (int i = 0; i < MAX; ++i) {

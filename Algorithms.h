@@ -1,5 +1,6 @@
 #ifndef ALGORITHMS_H
 #define ALGORITHMS_H
+#include <stdexcept>
 
 #include "Graph.h"
 #include "Queue.h"

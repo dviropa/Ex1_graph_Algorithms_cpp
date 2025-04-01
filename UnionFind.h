@@ -1,5 +1,6 @@
 #ifndef UNION_FIND_H
 #define UNION_FIND_H
+#include <stdexcept>
 
 class UnionFind {
 private:
@@ -11,13 +12,10 @@ public:
     UnionFind(int n);
     ~UnionFind();
 
-    // פעולה למציאת הנציג של קבוצה (עם קיבוע מסלול)
     int find(int x);
 
-    // מאחד בין שתי קבוצות
     void unite(int x, int y);
 
-    // לבדוק אם שני איברים באותה קבוצה
     bool connected(int x, int y);
 };
 

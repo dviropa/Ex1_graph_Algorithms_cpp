@@ -24,5 +24,6 @@ void Edge::setWeight(int w) {
 
 // השוואה בין קשתות - שימושי להסרה
 bool Edge::operator==(const Edge& other) const {
-    return (src == other.src && dest == other.dest && weight == other.weight);
+    return (src == other.src && dest == other.dest) ||
+           (src == other.dest && dest == other.src);
 }

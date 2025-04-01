@@ -4,6 +4,9 @@
 
 #include "adesenlist.h"
 #include "Edge.h"
+#include "auterNode.h"
+#include <stdexcept>
+
 
 
 namespace graph {
@@ -31,10 +34,20 @@ namespace graph {
         }
 
 
-        void adesenlist:: addEdge(int s, int t, int v) {
-                Edge e= {s,t,v};
-                this->list->addEdge(e);
+        void adesenlist::addEdge(int s, int t, int v) {
+                Edge e = {s, t, v};
+                auterNode* curr = list;
+
+                while (curr != nullptr) {
+                        if (curr->num == s) {
+                                curr->addEdge(e); // מוסיף את הצלע רק לצומת עם המספר s
+                                return;
+                        }
+                        curr = curr->next;
+                }
+                throw std::invalid_argument("Source node not found in adjacency list");
         }
+
 
         void adesenlist:: printGraph()  {
                 this->list->printEdges();
@@ -96,6 +109,7 @@ namespace graph {
                 Edge e= {s,t,0};
                 list->removeEdge(e);
         }
+
         bool adesenlist::operator==(const adesenlist& other) const {
                 auterNode* curr1 = this->list;
                 auterNode* curr2 = other.list;

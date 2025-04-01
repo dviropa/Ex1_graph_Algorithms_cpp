@@ -1,21 +1,15 @@
 // inerNode.h
-#ifndef INERNODE_H
-#define INERNODE_H
-
+#include "inerNode.h"
 #include "Edge.h"
 #include <climits>
 #include <iostream>
 
 namespace graph {
 
-class inerNode {
-public:
-    Edge e;
-    inerNode* next;
 
-    explicit inerNode(const Edge& edge) : e(edge), next(nullptr) {}
+    inerNode::inerNode(const Edge& edge) : e(edge), next(nullptr) {}
 
-    void addinerNode(const Edge& edge) {
+    void inerNode::addinerNode(const Edge& edge) {
         inerNode* temp = this;
         while (temp != nullptr) {
             if (temp->e == edge) {
@@ -28,7 +22,7 @@ public:
         temp->next = new inerNode(edge);
     }
 
-    void removeinerNode(const Edge& edge) {
+    void inerNode::removeinerNode(const Edge& edge) {
         inerNode* curr = this;
         inerNode* prev = nullptr;
 
@@ -53,7 +47,7 @@ public:
         }
     }
 
-    int get_weight(int u, int v) {
+    int inerNode::get_weight(int u, int v) {
         inerNode* temp = this;
         while (temp != nullptr) {
             if ((temp->e.getSrc() == u && temp->e.getDest() == v) ||
@@ -65,7 +59,7 @@ public:
         return INT_MAX; // Edge not found
     }
 
-    void printEdges() const {
+    void inerNode::printEdges() const {
         const inerNode* temp = this;
         while (temp != nullptr) {
             std::cout << "(" << temp->e.getSrc() << "->" << temp->e.getDest()
@@ -75,7 +69,7 @@ public:
         std::cout << "nullptr\n";
     }
 
-    ~inerNode() {
+    inerNode::~inerNode() {
         inerNode* curr = next;
         while (curr) {
             inerNode* temp = curr;
@@ -84,7 +78,4 @@ public:
         }
     }
 };
-
-} // namespace graph
-
-#endif // INERNODE_H
+ // namespace graph

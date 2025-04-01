@@ -18,10 +18,17 @@ namespace graph {
         adesenlist.removeEdge(source, target);
     }
 
-    void Graph::addEdge(int source, int target, int val) {
-        addEdge_one_side(source, target, val);
-        addEdge_one_side(target, source, val); // גרף לא מכוון
+void Graph::addEdge(int source, int target, int val) {
+    if (source < 0 || source >= num_of_points) {
+        throw std::invalid_argument("Source node is out of bounds.");
     }
+    if (target < 0 || target >= num_of_points) {
+        throw std::invalid_argument("Target node is out of bounds.");
+    }
+    addEdge_one_side(source, target, val);
+    addEdge_one_side(target, source, val);
+}
+
     Edge* Graph::get_all_edges(int& count) {
         count = 0;
         const int MAX_EDGES = 1000;

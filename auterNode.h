@@ -1,5 +1,8 @@
+#pragma once
 #include "Edge.h"
 #include "inerNode.h"
+#include <stdexcept>
+
 namespace graph {
 
 
@@ -9,7 +12,7 @@ public:
     inerNode* l;
     auterNode* next;
 
-    auterNode(int n) ;
+    explicit auterNode(int n);
 
     void addEdge(const Edge& e);
     void removeEdge(const Edge& e);

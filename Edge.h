@@ -1,5 +1,6 @@
 #ifndef EDGE_H
 #define EDGE_H
+#include <stdexcept>
 
 class Edge {
 private:
@@ -17,10 +18,7 @@ public:
 
     void setWeight(int w);
 
-    bool operator==(const Edge& other) const {
-        return (src == other.src && dest == other.dest) ||
-               (src == other.dest && dest == other.src);
-    }
+    bool operator==(const Edge& other) const;
 };
 
 #endif // EDGE_H
