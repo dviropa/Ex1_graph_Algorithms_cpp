@@ -8,8 +8,8 @@ Graph Algorithms::bfs(Graph g, int s) {
     bool *visited = new bool[MAX]{false};
 
     if (s < 0 || s >= MAX) {
-        std::cout << "Invalid start node\n";
-        return Graph(0);
+        delete[] visited;
+        throw std::invalid_argument("Start node is out of bounds.");
     }
 
     Graph tree(g.get_size());
@@ -43,14 +43,15 @@ Graph Algorithms::bfs(Graph g, int s) {
     }
 
     std::cout << std::endl;
+    delete[] visited;
+
     return tree;
 }
 
 Graph Algorithms::dfs(Graph g, int x) {
     const int MAX = g.get_size();
     if (x < 0 || x >= MAX) {
-        std::cout << "Invalid start node\n";
-        return Graph(0);
+        throw std::invalid_argument("Start node is out of bounds.");
     }
 
     bool* visited = new bool[MAX]();
@@ -105,9 +106,9 @@ Graph Algorithms::dfs(Graph g, int x) {
 
     Graph g_ans(g.get_size());
     const int MAX = g.get_size();
-    int distance[MAX];
-    int parent[MAX];
-    bool *visited = new bool[MAX]{false};
+    int* distance = new int[MAX];
+    int* parent = new int[MAX];
+    bool* visited = new bool[MAX]{false};
     int INF = INT_MAX;
 
     for (int i = 0; i < MAX; ++i) {
@@ -135,12 +136,13 @@ Graph Algorithms::dfs(Graph g, int x) {
         while (neighbors && neighbors[i] != -1) {
             int v = neighbors[i];
             int weight = g.get_weight(u, v);
-            if (!visited[v] && distance[u] + weight < distance[v]) {
+            if (distance[u] != INF && !visited[v] && distance[u] + weight < distance[v]){
                 distance[v] = distance[u] + weight;
                 parent[v] = u;
             }
             i++;
         }
+
         delete[] neighbors;
     }
 
@@ -150,21 +152,27 @@ Graph Algorithms::dfs(Graph g, int x) {
             g_ans.addEdge(parent[i], i, w);
         }
     }
-
+    delete[] visited;
+    delete[] distance;
+    delete[] parent;
     delete[] edges;
     return g_ans;
 }
+//    long long choose(int n, int k) {
+//    if (k > n) return 0; // מקרה גבול: לא ניתן לבחור יותר אלמנטים מהקיימים
+//    return factorial(n) / (factorial(k) * factorial(n - k));
+//}
 
 
 Graph Algorithms::prim(Graph g, int s) {
     if (s < 0 || s >= g.get_size()) {
         throw std::invalid_argument("Start node is out of bounds.");
     }
-    const int MAX = 100;
+    const int MAX = g.get_size();
+    int* key = new int[MAX];
+    int* parent = new int[MAX];
+    bool* inMST = new bool[MAX]{false};
     int INF = INT_MAX;
-    int key[MAX];
-    int parent[MAX];
-    bool inMST[MAX] = {false};
 
     for (int i = 0; i < g.get_size(); ++i) {
         key[i] = INF;
@@ -209,7 +217,9 @@ Graph Algorithms::prim(Graph g, int s) {
             mst.addEdge(parent[i], i, w);
         }
     }
-
+    delete[] key;
+    delete[] parent;
+    delete[] inMST;
     return mst;
 }
 

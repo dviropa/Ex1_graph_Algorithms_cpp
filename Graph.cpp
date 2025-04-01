@@ -4,9 +4,11 @@
 
 namespace graph {
 
-    Graph::Graph(int num_points) : num_of_points(num_points), adesenlist(num_points) {}
-
-
+  Graph::Graph(int num_points) : num_of_points(num_points), adesenlist(num_points) {
+    if (num_points <= 0) {
+        throw std::invalid_argument("Graph must have at least one vertex.");
+    }
+}
     Graph::~Graph() {}
 
     void Graph::addEdge_one_side(int source, int target, int val) {
