@@ -57,6 +57,13 @@ void Graph::addEdge(int source, int target, int val) {
     }
 
     int Graph::get_weight(int u, int v) {
+          if (u < 0 || u >= num_of_points) {
+        throw std::invalid_argument("Source node is out of bounds.");
+    }
+    if (v < 0 ||  v >= num_of_points) {
+        throw std::invalid_argument("Target node is out of bounds.");
+        return nullptr;
+    }
         return adesenList.get_weight(u, v);
     }
 

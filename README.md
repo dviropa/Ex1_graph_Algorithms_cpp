@@ -1,7 +1,8 @@
 # Graph Assignment - Adjacency List Implementation
 
 **Author:** Dvir  
-**Email:** your_email@example.com
+**Email:** dvir.opa@gmail.com
+
 
 ## Overview
 

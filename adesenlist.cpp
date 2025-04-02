@@ -53,9 +53,17 @@ namespace graph {
                 this->list->printEdges();
 
         }
-        int adesenlist:: get_weight(int u,int v) {
-                return this->list->get_weight(u,v);
+int adesenlist::get_weight(int u, int v) {
+    auterNode* curr = this->list;
+    while (curr) {
+        if (curr->num == u) {
+            return curr->get_weight(u, v);
         }
+        curr = curr->next;
+    }
+    return INT_MAX; // צומת לא נמצא
+}
+
         int* adesenlist::get_neighbors(int x) {
                 auterNode* curr = this->list;
                 while (curr && curr->num != x) {

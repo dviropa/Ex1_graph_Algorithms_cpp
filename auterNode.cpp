@@ -10,9 +10,15 @@ namespace graph {
 
         auterNode::auterNode(int n) : num(n), l(nullptr), next(nullptr) {}
 
-        void auterNode::addEdge(const Edge& e) {
+       void auterNode::addEdge(const Edge& e) {
             if (!l) l = new inerNode(e);
-            else l->addinerNode(e);
+            else{
+                inerNode* temp1 = this->l;
+            while (temp1->next!=nullptr) {
+              temp1 = temp1->next;
+                }
+                l->addinerNode(e);
+            }
         }
 
         
@@ -21,8 +27,12 @@ namespace graph {
         }
 
         int auterNode::get_weight(int u, int v) {
-            if (l) return l->get_weight(u, v);
-            return INT_MAX;
+            inerNode* temp1 = this->l;
+            while (temp1->next!=nullptr) {
+              temp1 = temp1->next;
+            }
+
+            return temp1->get_weight(u, v);
         }
 
         void auterNode::printEdges() const {
@@ -33,7 +43,6 @@ namespace graph {
 
         auterNode::~auterNode() {
             delete l;
-            if (next) delete next;
         }
 
         bool auterNode::operator==(const auterNode &other) const{
