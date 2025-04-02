@@ -1,11 +1,11 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../doctest.h"
+#include "doctest.h"
 
 #include "../Graph.h"
 #include "../Algorithms.h"
 
 using namespace graph;
-a
+
 
 // TEST_CASE("Dijkstra shortest paths") {
 //     Graph g(6);
