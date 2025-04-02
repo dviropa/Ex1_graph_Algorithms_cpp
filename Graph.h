@@ -10,7 +10,7 @@ namespace graph {
 //https://github.com/BenjaminSaldman/CPP_EX1_25
     class Graph {
     private:
-        adesenlist adesenlist;
+        adesenlist adesenList;
         int num_of_points;
 
 

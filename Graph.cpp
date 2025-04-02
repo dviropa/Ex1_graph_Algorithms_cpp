@@ -4,7 +4,7 @@
 
 namespace graph {
 
-  Graph::Graph(int num_points) : num_of_points(num_points), adesenlist(num_points) {
+  Graph::Graph(int num_points) : num_of_points(num_points), adesenList(num_points) {
     if (num_points <= 0) {
         throw std::invalid_argument("Graph must have at least one vertex.");
     }
@@ -13,11 +13,11 @@ namespace graph {
 
     void Graph::addEdge_one_side(int source, int target, int val) {
         Edge e(source, target, val);
-        adesenlist.addEdge(source, target, val);
+        adesenList.addEdge(source, target, val);
     }
 
     void Graph::removeEdgeFromNode(int source, int target) {
-        adesenlist.removeEdge(source, target);
+        adesenList.removeEdge(source, target);
     }
 
 void Graph::addEdge(int source, int target, int val) {
@@ -36,7 +36,7 @@ void Graph::addEdge(int source, int target, int val) {
         const int MAX_EDGES = 1000;
         Edge* edges = new Edge[MAX_EDGES];
 
-        auterNode* current = adesenlist.get_heade();
+        auterNode* current = adesenList.get_heade();
         while (current != nullptr) {
             inerNode* neighbor = current->l;
             while (neighbor != nullptr) {
@@ -57,22 +57,22 @@ void Graph::addEdge(int source, int target, int val) {
     }
 
     int Graph::get_weight(int u, int v) {
-        return adesenlist.get_weight(u, v);
+        return adesenList.get_weight(u, v);
     }
 
     int* Graph::get_neighbors(int x) {
-        return adesenlist.get_neighbors(x);
+        return adesenList.get_neighbors(x);
     }
 
     void Graph::printGraph()  {
-        adesenlist.printGraph();
+        adesenList.printGraph();
     }
 
     bool Graph::operator==(const Graph& other) const  {
         if (this->num_of_points != other.num_of_points)
             return false;
 
-        return this->adesenlist == other.adesenlist;
+        return this->adesenList == other.adesenList;
     }
 
 
