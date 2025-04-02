@@ -6,6 +6,7 @@
 #include "Edge.h"
 #include "auterNode.h"
 #include <stdexcept>
+#include <climits>
 
 
 
@@ -64,28 +65,38 @@ int adesenlist::get_weight(int u, int v) {
     return INT_MAX; // צומת לא נמצא
 }
 
-        int* adesenlist::get_neighbors(int x) {
-                auterNode* curr = this->list;
-                while (curr && curr->num != x) {
-                        curr = curr->next;
-                }
-                if (!curr || !curr->l) return nullptr;
-                int count = 0;
-                inerNode* edgeIter = curr->l;
-                while (edgeIter) {
-                        count++;
-                        edgeIter = edgeIter->next;
-                }
-                int* arr = new int[count + 1];
-                edgeIter = curr->l;
-                int i = 0;
-                while (edgeIter) {
-                        arr[i++] = edgeIter->e.getDest();
-                        edgeIter = edgeIter->next;
-                }
-                arr[i] = -1;
-                return arr;
-        }
+      int* adesenlist::get_neighbors(int x) {
+    auterNode* curr = this->list;
+    while (curr && curr->num != x) {
+        curr = curr->next;
+    }
+
+    // גם אם לא מצאת את הצומת או שאין לו שכנים – תחזיר מערך [-1]
+    if (!curr || !curr->l) {
+        int* arr = new int[1];
+        arr[0] = -1;
+        return arr;
+    }
+
+    // אחרת – תמשיך כרגיל
+    int count = 0;
+    inerNode* edgeIter = curr->l;
+    while (edgeIter) {
+        count++;
+        edgeIter = edgeIter->next;
+    }
+
+    int* arr = new int[count + 1];
+    edgeIter = curr->l;
+    int i = 0;
+    while (edgeIter) {
+        arr[i++] = edgeIter->e.getDest();
+        edgeIter = edgeIter->next;
+    }
+    arr[i] = -1;
+    return arr;
+}
+
 
         Edge* adesenlist::get_all_edges(int& count) {
                 count = 0;

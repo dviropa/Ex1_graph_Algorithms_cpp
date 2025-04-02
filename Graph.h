@@ -33,6 +33,9 @@ namespace graph {
 
         Edge *get_all_edges(int &count) ;
         bool operator==(const Graph& other) const ;
+        Graph(const Graph& other);
+		Graph& operator=(const Graph& other);
+
 
     };
 

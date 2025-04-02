@@ -1,5 +1,5 @@
-CXX=clang++-9
-CXXFLAGS=-std=c++2a 
+CXX=g++
+CXXFLAGS=-std=c++2a
 
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
@@ -17,7 +17,11 @@ $(DEMO) : $(OBJS)
 
 
 testAlgo : $(OBJS) Test/test_Algorithms.cpp
-	$(CXX) $(CXXFLAGS) $(filter-out main.o, $(OBJS)) ./Test/test_algorithms.cpp -o  $@
+	$(CXX) $(CXXFLAGS) $(filter-out main.o, $(OBJS)) ./Test/test_Algorithms.cpp -o  $@
+testGraph : $(OBJS) Test/test_graph.cpp
+	$(CXX) $(CXXFLAGS) $(filter-out main.o, $(OBJS)) ./Test/test_graph.cpp -o  $@
+runtestg:./testGraph
+runtesta:./testAlgo
 
 
 clean: 

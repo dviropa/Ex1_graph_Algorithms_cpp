@@ -1,33 +1,28 @@
 #include "Algorithms.h"
 #include <iostream>
 #include <climits>
+
 namespace graph {
 
-Graph Algorithms::bfs(Graph g, int s) {
+Graph Algorithms::bfs(Graph &g, int s) {
     const int MAX = g.get_size();
-    bool *visited = new bool[MAX]{false};
-
     if (s < 0 || s >= MAX) {
-        delete[] visited;
         throw std::invalid_argument("Start node is out of bounds.");
     }
 
+    bool *visited = new bool[MAX]{false};
     Graph tree(g.get_size());
     Queue q;
 
     q.push(s);
     visited[s] = true;
 
-
     while (!q.isEmpty()) {
         int current = q.peek();
         q.pop();
-
         std::cout << current << " ";
 
         int* neighbors = g.get_neighbors(current);
-        if (neighbors == nullptr) continue;
-
         int i = 0;
         while (neighbors[i] != -1) {
             int neighbor = neighbors[i];
@@ -38,39 +33,33 @@ Graph Algorithms::bfs(Graph g, int s) {
             }
             i++;
         }
-
         delete[] neighbors;
     }
 
     std::cout << std::endl;
     delete[] visited;
-
     return tree;
 }
 
-Graph Algorithms::dfs(Graph g, int x) {
+Graph Algorithms::dfs(Graph& g, int x) {
     const int MAX = g.get_size();
     if (x < 0 || x >= MAX) {
         throw std::invalid_argument("Start node is out of bounds.");
     }
 
-    bool* visited = new bool[MAX]();
+    bool* visited = new bool[MAX]{false};
     Graph tree(MAX);
     Stack s;
 
     s.push(x);
     visited[x] = true;
 
-
     while (!s.isEmpty()) {
         int current = s.top();
         s.pop();
-
         std::cout << current << " ";
 
         int* neighbors = g.get_neighbors(current);
-        if (neighbors == nullptr) continue;
-
         int i = 0;
         while (neighbors[i] != -1) {
             int neighbor = neighbors[i];
@@ -81,7 +70,6 @@ Graph Algorithms::dfs(Graph g, int x) {
             }
             i++;
         }
-
         delete[] neighbors;
     }
 
@@ -90,7 +78,7 @@ Graph Algorithms::dfs(Graph g, int x) {
     return tree;
 }
 
-    Graph Algorithms::dijKstra(Graph g, int s) {
+Graph Algorithms::dijKstra(Graph& g, int s) {
     if (s < 0 || s >= g.get_size()) {
         throw std::invalid_argument("Start node is out of bounds.");
     }
@@ -104,12 +92,12 @@ Graph Algorithms::dfs(Graph g, int x) {
         }
     }
 
-    Graph g_ans(g.get_size());
     const int MAX = g.get_size();
     int* distance = new int[MAX];
     int* parent = new int[MAX];
     bool* visited = new bool[MAX]{false};
-    int INF = INT_MAX;
+    Graph g_ans(MAX);
+    const int INF = INT_MAX;
 
     for (int i = 0; i < MAX; ++i) {
         distance[i] = INF;
@@ -117,13 +105,13 @@ Graph Algorithms::dfs(Graph g, int x) {
     }
     distance[s] = 0;
 
-    for (int count = 0; count < MAX; ++count) {
+    for (int i = 0; i < MAX; ++i) {
         int u = -1;
         int minDist = INF;
-        for (int i = 0; i < MAX; ++i) {
-            if (!visited[i] && distance[i] < minDist) {
-                minDist = distance[i];
-                u = i;
+        for (int j = 0; j < MAX; ++j) {
+            if (!visited[j] && distance[j] < minDist) {
+                minDist = distance[j];
+                u = j;
             }
         }
 
@@ -132,15 +120,15 @@ Graph Algorithms::dfs(Graph g, int x) {
         visited[u] = true;
 
         int* neighbors = g.get_neighbors(u);
-        int i = 0;
-        while (neighbors && neighbors[i] != -1) {
-            int v = neighbors[i];
+        int k = 0;
+        while (neighbors && neighbors[k] != -1) {
+            int v = neighbors[k];
             int weight = g.get_weight(u, v);
-            if (distance[u] != INF && !visited[v] && distance[u] + weight < distance[v]){
+            if (!visited[v] && distance[u] + weight < distance[v]) {
                 distance[v] = distance[u] + weight;
                 parent[v] = u;
             }
-            i++;
+            k++;
         }
 
         delete[] neighbors;
@@ -152,39 +140,35 @@ Graph Algorithms::dfs(Graph g, int x) {
             g_ans.addEdge(parent[i], i, w);
         }
     }
-    delete[] visited;
+
+    delete[] edges;
     delete[] distance;
     delete[] parent;
-    delete[] edges;
+    delete[] visited;
     return g_ans;
 }
-//    long long choose(int n, int k) {
-//    if (k > n) return 0; // מקרה גבול: לא ניתן לבחור יותר אלמנטים מהקיימים
-//    return factorial(n) / (factorial(k) * factorial(n - k));
-//}
 
-
-Graph Algorithms::prim(Graph g, int s) {
+Graph Algorithms::prim(Graph& g, int s) {
     if (s < 0 || s >= g.get_size()) {
         throw std::invalid_argument("Start node is out of bounds.");
     }
+
     const int MAX = g.get_size();
     int* key = new int[MAX];
     int* parent = new int[MAX];
     bool* inMST = new bool[MAX]{false};
-    int INF = INT_MAX;
+    const int INF = INT_MAX;
 
-    for (int i = 0; i < g.get_size(); ++i) {
+    for (int i = 0; i < MAX; ++i) {
         key[i] = INF;
         parent[i] = -1;
     }
-
     key[s] = 0;
 
-    for (int count = 0; count < g.get_size(); ++count) {
+    for (int count = 0; count < MAX; ++count) {
         int u = -1;
         int minKey = INF;
-        for (int i = 0; i < g.get_size(); ++i) {
+        for (int i = 0; i < MAX; ++i) {
             if (!inMST[i] && key[i] < minKey) {
                 minKey = key[i];
                 u = i;
@@ -192,7 +176,6 @@ Graph Algorithms::prim(Graph g, int s) {
         }
 
         if (u == -1) break;
-
         inMST[u] = true;
 
         int* neighbors = g.get_neighbors(u);
@@ -207,26 +190,29 @@ Graph Algorithms::prim(Graph g, int s) {
             }
             i++;
         }
+
         delete[] neighbors;
     }
 
-    Graph mst(g.get_size());
-    for (int i = 0; i < g.get_size(); ++i) {
+    Graph mst(MAX);
+    for (int i = 0; i < MAX; ++i) {
         if (parent[i] != -1) {
             int w = g.get_weight(parent[i], i);
             mst.addEdge(parent[i], i, w);
         }
     }
+
     delete[] key;
     delete[] parent;
     delete[] inMST;
     return mst;
 }
 
-Graph Algorithms::kruskal(Graph g, int s) {
+Graph Algorithms::kruskal(Graph& g, int s) {
     if (s < 0 || s >= g.get_size()) {
         throw std::invalid_argument("Start node is out of bounds.");
     }
+
     int n = g.get_size();
     Graph mst(n);
     UnionFind uf(n);

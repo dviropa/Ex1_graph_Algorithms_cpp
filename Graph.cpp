@@ -33,7 +33,7 @@ void Graph::addEdge(int source, int target, int val) {
 
     Edge* Graph::get_all_edges(int& count) {
         count = 0;
-        const int MAX_EDGES = 1000;
+        const int MAX_EDGES = num_of_points;
         Edge* edges = new Edge[MAX_EDGES];
 
         auterNode* current = adesenList.get_heade();
@@ -62,7 +62,6 @@ void Graph::addEdge(int source, int target, int val) {
     }
     if (v < 0 ||  v >= num_of_points) {
         throw std::invalid_argument("Target node is out of bounds.");
-        return nullptr;
     }
         return adesenList.get_weight(u, v);
     }
@@ -81,6 +80,15 @@ void Graph::addEdge(int source, int target, int val) {
 
         return this->adesenList == other.adesenList;
     }
+Graph::Graph(const Graph& other) : num_of_points(other.num_of_points), adesenList(other.adesenList) {}
+
+Graph& Graph::operator=(const Graph& other) {
+    if (this != &other) {
+        num_of_points = other.num_of_points;
+        adesenList = other.adesenList;
+    }
+    return *this;
+}
 
 
 

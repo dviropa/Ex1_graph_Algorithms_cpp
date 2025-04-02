@@ -41,9 +41,15 @@ namespace graph {
             else std::cout << "No edges\n";
         }
 
-        auterNode::~auterNode() {
-            delete l;
-        }
+ auterNode::~auterNode() {
+    inerNode* curr = l;
+    while (curr) {
+        inerNode* temp = curr;
+        curr = curr->next;
+        delete temp;
+    }
+}
+
 
         bool auterNode::operator==(const auterNode &other) const{
             if (this->num != other.num) return false;
