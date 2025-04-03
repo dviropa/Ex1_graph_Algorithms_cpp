@@ -51,7 +51,12 @@ namespace graph {
 
 
         void adesenlist:: printGraph()  {
-                this->list->printEdges();
+                  8auterNode* curr = this->list;
+                while (curr) {
+                        curr->printEdges();
+
+                    curr = curr->next;
+                }
 
         }
 int adesenlist::get_weight(int u, int v) {

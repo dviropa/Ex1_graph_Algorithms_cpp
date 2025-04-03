@@ -4,7 +4,7 @@
 
 namespace graph {
 
-Graph Algorithms::bfs(Graph &g, int s) {
+    static Graph Algorithms::bfs(Graph &g, int s) {
     const int MAX = g.get_size();
     if (s < 0 || s >= MAX) {
         throw std::invalid_argument("Start node is out of bounds.");
@@ -41,7 +41,7 @@ Graph Algorithms::bfs(Graph &g, int s) {
     return tree;
 }
 
-Graph Algorithms::dfs(Graph& g, int x) {
+static  Graph Algorithms::dfs(Graph& g, int x) {
     const int MAX = g.get_size();
     if (x < 0 || x >= MAX) {
         throw std::invalid_argument("Start node is out of bounds.");
@@ -78,7 +78,7 @@ Graph Algorithms::dfs(Graph& g, int x) {
     return tree;
 }
 
-Graph Algorithms::dijKstra(Graph& g, int s) {
+static Graph Algorithms::dijKstra(Graph& g, int s) {
     if (s < 0 || s >= g.get_size()) {
         throw std::invalid_argument("Start node is out of bounds.");
     }
@@ -148,7 +148,7 @@ Graph Algorithms::dijKstra(Graph& g, int s) {
     return g_ans;
 }
 
-Graph Algorithms::prim(Graph& g, int s) {
+static Graph Algorithms::prim(Graph& g, int s) {
     if (s < 0 || s >= g.get_size()) {
         throw std::invalid_argument("Start node is out of bounds.");
     }
@@ -208,7 +208,7 @@ Graph Algorithms::prim(Graph& g, int s) {
     return mst;
 }
 
-Graph Algorithms::kruskal(Graph& g, int s) {
+static Graph Algorithms::kruskal(Graph& g, int s) {
     if (s < 0 || s >= g.get_size()) {
         throw std::invalid_argument("Start node is out of bounds.");
     }

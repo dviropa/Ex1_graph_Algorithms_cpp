@@ -1,4 +1,5 @@
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN1
+
 #include "doctest.h"
 
 #include "../Graph.h"
@@ -50,7 +51,7 @@ using namespace graph;
 //     CHECK(mst == expected);
 // }
 // TEST_CASE("Kruskal MST") {
-//     Graph g(4);
+//     Graph g(5);
 //     g.addEdge(0, 1, 2);
 //     g.addEdge(0, 3, 6);
 //     g.addEdge(1, 2, 3);
