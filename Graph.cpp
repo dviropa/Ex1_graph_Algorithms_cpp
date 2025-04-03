@@ -81,9 +81,7 @@ void Graph::addEdge(int source, int target, int val) {
         return this->adesenList == other.adesenList;
     }
 Graph::Graph(const Graph& other) : num_of_points(other.num_of_points), adesenList(other.adesenList) {}
-    int Graph:: get_size(int x){
-        return num_of_points;
-    }
+
 Graph& Graph::operator=(const Graph& other) {
     if (this != &other) {
         num_of_points = other.num_of_points;

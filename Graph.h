@@ -30,7 +30,6 @@ namespace graph {
         void removeEdge(int source, int target);
 
         void printGraph() ;
-        int get_size(int x);
 
         Edge *get_all_edges(int &count) ;
         bool operator==(const Graph& other) const ;
