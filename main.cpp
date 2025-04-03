@@ -91,10 +91,7 @@ int main() {
                 break;
             }
             case 7: {
-                int s;
-                std::cout << "Enter any start vertex (ignored in Kruskal): ";
-                std::cin >> s;
-                Graph kruskalTree = Algorithms::kruskal(g, s);
+                Graph kruskalTree = Algorithms::kruskal(g);
                 std::cout << "\nKruskal's MST:\n";
                 kruskalTree.printGraph();
                 break;

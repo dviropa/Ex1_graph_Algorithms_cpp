@@ -208,10 +208,7 @@ static Graph Algorithms::prim(Graph& g, int s) {
     return mst;
 }
 
-static Graph Algorithms::kruskal(Graph& g, int s) {
-    if (s < 0 || s >= g.get_size()) {
-        throw std::invalid_argument("Start node is out of bounds.");
-    }
+static Graph Algorithms::kruskal(Graph& g) {
 
     int n = g.get_size();
     Graph mst(n);

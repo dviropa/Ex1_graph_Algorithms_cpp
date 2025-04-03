@@ -40,7 +40,7 @@ using namespace graph;
 //     g.addEdge(2, 4, 7);
 //     g.addEdge(3, 4, 9);
 
-//     Graph mst = Algorithms::prim(g, 0);
+//     Graph mst = Algorithms::prim(g,0);
 
 //     Graph expected(5);
 //     expected.addEdge(1, 2, 3);
@@ -60,7 +60,7 @@ using namespace graph;
 //     g.addEdge(2, 4, 7);
 //     g.addEdge(3, 4, 9);
 
-//     Graph mst = Algorithms::kruskal(g, 0);
+//     Graph mst = Algorithms::kruskal(g);
 
 //     Graph expected(4);
 //     expected.addEdge(1, 2, 3);

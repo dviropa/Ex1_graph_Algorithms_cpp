@@ -51,7 +51,7 @@ namespace graph {
 
 
         void adesenlist:: printGraph()  {
-                  8auterNode* curr = this->list;
+                auterNode* curr = this->list;
                 while (curr) {
                         curr->printEdges();
 

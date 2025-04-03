@@ -25,8 +25,8 @@ namespace graph {
         static Graph bfs(Graph& g, int s);
         static Graph dfs(Graph& g, int x);
         static Graph dijKstra(Graph& g, int s);
-        static Graph prim(Graph& g, int s);
-        static Graph kruskal(Graph& g, int s);
+        static Graph prim(Graph& g,int s);
+        static Graph kruskal(Graph& g);
     };
 
 } // namespace graph
