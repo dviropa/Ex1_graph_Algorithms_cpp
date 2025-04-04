@@ -58,12 +58,15 @@ namespace graph {
 
     void Algorithms::dfs_util(Graph &g, Graph &tree, int current, bool *visited)
     {
-        if (visited[current])
+      int *neighbors = g.get_neighbors(current);
+
+        if (visited[current]){
+            delete[] neighbors;
             return;
 
+        }
         visited[current] = true;
 
-        int *neighbors = g.get_neighbors(current);
         int i = 0;
         while (neighbors[i] != -1)
         {
