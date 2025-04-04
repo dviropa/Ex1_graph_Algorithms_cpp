@@ -1,6 +1,3 @@
-//
-// Created by דביר on 3/23/2025.
-//
 
 #include "adesenlist.h"
 #include "Edge.h"
@@ -16,7 +13,7 @@ namespace graph {
                 list = nullptr;
                 size=num;
                 for (int i = num - 1; i >= 0; --i) {
-                        auterNode* newNode = new auterNode(i); // קונסטרקטור עם מספר הצומת
+                        auterNode* newNode = new auterNode(i);
                         newNode->next = list;
                         list = newNode;
                 }
@@ -41,7 +38,7 @@ namespace graph {
 
                 while (curr != nullptr) {
                         if (curr->num == s) {
-                                curr->addEdge(e); // מוסיף את הצלע רק לצומת עם המספר s
+                                curr->addEdge(e);
                                 return;
                         }
                         curr = curr->next;
@@ -76,14 +73,12 @@ int* adesenlist::get_neighbors(int x) {
         curr = curr->next;
     }
 
-    // גם אם לא מצאת את הצומת או שאין לו שכנים – תחזיר מערך [-1]
     if (!curr || !curr->l) {
         int* arr = new int[1];
         arr[0] = -1;
         return arr;
     }
 
-    // אחרת – תמשיך כרגיל
     int count = 0;
     inerNode* edgeIter = curr->l;
     while (edgeIter) {
@@ -105,7 +100,6 @@ int* adesenlist::get_neighbors(int x) {
 
         Edge* adesenlist::get_all_edges(int& count) {
                 count = 0;
-                const int MAX_EDGES = 1000;
         int caount=0;
             auterNode* temp = list;
 
@@ -128,7 +122,7 @@ int* adesenlist::get_neighbors(int x) {
                                 int src = e.getSrc();
                                 int dest = e.getDest();
                                 if (src < dest) {
-                                	if (count >= MAX_EDGES) {
+                                	if (count >= caount) {
     									delete[] edges;
     									throw std::overflow_error("Too many edges");
 									}
@@ -159,9 +153,6 @@ int* adesenlist::get_neighbors(int x) {
                         curr2 = curr2->next;
                 }
 
-                // אם אחד מהם עדיין לא הסתיים – הרשימות לא באותו גודל
                 return (curr1 == nullptr && curr2 == nullptr);
         }
-
-
 }

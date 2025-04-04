@@ -20,6 +20,7 @@ namespace graph {
                 }
             }
         }
+        static void dfs_util(Graph& g,Graph& tree, int current, bool *visited);
 
 
     public:

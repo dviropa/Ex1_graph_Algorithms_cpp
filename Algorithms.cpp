@@ -39,42 +39,46 @@ namespace graph {
     return tree;
 }
 
-  Graph Algorithms::dfs(Graph& g, int x) {
-    const int MAX = g.get_size();
-    if (x < 0 || x >= MAX) {
-        throw std::invalid_argument("Start node is out of bounds.");
+ Graph Algorithms::dfs(Graph &g, int x)
+    {
+        const int MAX = g.get_size();
+        if (x < 0 || x >= MAX)
+        {
+            throw std::invalid_argument("Start node is out of bounds.");
+        }
+
+        bool *visited = new bool[MAX]{false};
+        Graph tree(MAX);
+
+        dfs_util(g, tree, x, visited);
+
+        delete[] visited;
+        return tree;
     }
 
-    bool* visited = new bool[MAX]{false};
-    Graph tree(MAX);
-    Stack s;
+    void Algorithms::dfs_util(Graph &g, Graph &tree, int current, bool *visited)
+    {
+        if (visited[current])
+            return;
 
-    s.push(x);
-    visited[x] = true;
+        visited[current] = true;
 
-    while (!s.isEmpty()) {
-        int current = s.top();
-        s.pop();
-        std::cout << current << " ";
-
-        int* neighbors = g.get_neighbors(current);
+        int *neighbors = g.get_neighbors(current);
         int i = 0;
-        while (neighbors[i] != -1) {
+        while (neighbors[i] != -1)
+        {
             int neighbor = neighbors[i];
-            if (!visited[neighbor]) {
-                visited[neighbor] = true;
-                s.push(neighbor);
+
+            if (!visited[neighbor])
+            {
                 tree.addEdge(current, neighbor, 0);
+                dfs_util(g, tree, neighbor, visited);
             }
+
             i++;
         }
-        delete[] neighbors;
-    }
+    };
 
-    std::cout << std::endl;
-    delete[] visited;
-    return tree;
-}
 
  Graph Algorithms::dijKstra(Graph& g, int s) {
     if (s < 0 || s >= g.get_size()) {
