@@ -31,17 +31,17 @@ The project is organized into several modules:
 ### Algorithms
 
 - `Algorithms` class implements:
-    - BFS (Breadth-First Search)
-    - DFS (Depth-First Search)
-    - Dijkstra (Shortest Path Tree)
-    - Prim (Minimum Spanning Tree)
-    - Kruskal (Minimum Spanning Tree)
+    - BFS 
+    - DFS 
+    - Dijkstra 
+    - Prim 
+    - Kruskal 
 
 ### Data Structures
 
-- `Queue` – basic FIFO queue (used in BFS)
-- `Stack` – basic LIFO stack (used in DFS)
-- `UnionFind` – disjoint-set data structure (used in Kruskal)
+- `Queue`  
+- `Stack` 
+- `UnionFind` 
 
 ## Features
 
@@ -61,7 +61,10 @@ The project is organized into several modules:
 ### Compilation (Using Makefile)
 
 ```bash
-make Main       # Compiles and runs main.cpp
-make test       # Runs unit tests
+make run       # Compiles and runs main.cpp
+make testAlgo       # Runs tests on Algorithms 
+    and then ./testGraph
+make testGraph       # Runs tests on Graph
+    and then ./testAlgo
 make valgrind   # Checks memory leaks
 make clean      # Cleans build files
