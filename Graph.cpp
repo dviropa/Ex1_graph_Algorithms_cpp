@@ -34,7 +34,20 @@ void Graph::addEdge(int source, int target, int val) {
     Edge* Graph::get_all_edges(int& count) {
         count = 0;
         const int MAX_EDGES = num_of_points;
-        Edge* edges = new Edge[MAX_EDGES];
+        int caount=0;
+      auterNode* temp = adesenList.get_heade();
+        while (temp != nullptr) {
+            inerNode* neighbor = temp->l;
+            while (neighbor != nullptr) {
+                Edge e = neighbor->e;
+                if (e.getSrc() < e.getDest()) {
+                    caount++:
+                }
+                neighbor = neighbor->next;
+            }
+            temp = temp->next;
+        }
+        Edge* edges = new Edge[caount];
 
         auterNode* current = adesenList.get_heade();
         while (current != nullptr) {

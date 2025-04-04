@@ -122,7 +122,7 @@ namespace graph {
         while (neighbors && neighbors[k] != -1) {
             int v = neighbors[k];
             int weight = g.get_weight(u, v);
-            if (!visited[v] && distance[u] + weight < distance[v]) {
+            if (weight != INT_MAX &&!visited[v] && distance[u] + weight < distance[v]) {
                 distance[v] = distance[u] + weight;
                 parent[v] = u;
             }

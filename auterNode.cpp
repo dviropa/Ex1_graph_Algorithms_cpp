@@ -10,16 +10,14 @@ namespace graph {
 
         auterNode::auterNode(int n) : num(n), l(nullptr), next(nullptr) {}
 
-       void auterNode::addEdge(const Edge& e) {
-            if (!l) l = new inerNode(e);
-            else{
-                inerNode* temp1 = this->l;
-            while (temp1->next!=nullptr) {
-              temp1 = temp1->next;
-                }
-                l->addinerNode(e);
-            }
-        }
+void auterNode::addEdge(const Edge& e) {
+    if (!l) {
+        l = new inerNode(e);
+    } else {
+        l->addinerNode(e);
+    }
+}
+
 
         
         void auterNode::removeEdge(const Edge& e) {

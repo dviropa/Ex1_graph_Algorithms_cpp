@@ -118,7 +118,12 @@ int* adesenlist::get_neighbors(int x) {
                                 int src = e.getSrc();
                                 int dest = e.getDest();
                                 if (src < dest) {
-                                        edges[count++] = e;
+                                	if (count >= MAX_EDGES) {
+    									delete[] edges;
+    									throw std::overflow_error("Too many edges");
+									}
+
+                                    edges[count++] = e;
                                 }
                                 edgeIter = edgeIter->next;
                         }
