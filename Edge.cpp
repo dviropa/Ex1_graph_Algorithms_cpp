@@ -1,3 +1,4 @@
+//#dvir.opa@gmail.com
 #include "Edge.h"
 
 Edge::Edge(int src, int dest, int w) {
@@ -22,7 +23,6 @@ void Edge::setWeight(int w) {
     this->weight = w;
 }
 
-// השוואה בין קשתות - שימושי להסרה
 bool Edge::operator==(const Edge& other) const {
     return (src == other.src && dest == other.dest) ||
            (src == other.dest && dest == other.src);

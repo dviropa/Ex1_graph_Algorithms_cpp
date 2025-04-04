@@ -1,3 +1,5 @@
+//#dvir.opa@gmail.com
+
 #ifndef UNION_FIND_H
 #define UNION_FIND_H
 #include <stdexcept>

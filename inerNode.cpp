@@ -1,4 +1,6 @@
 // inerNode.h
+//#dvir.opa@gmail.com
+
 #include "inerNode.h"
 #include "Edge.h"
 #include <climits>
@@ -77,4 +79,4 @@ namespace graph {
     }
 
 };
- // namespace graph
+

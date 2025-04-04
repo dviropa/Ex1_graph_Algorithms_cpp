@@ -1,6 +1,6 @@
-//
-// Created by דביר on 3/21/2025.
-//
+//#dvir.opa@gmail.com
+
+#include <stdexcept>
 
 #include "Queue.h"
 Queue::Queue(int size ) {

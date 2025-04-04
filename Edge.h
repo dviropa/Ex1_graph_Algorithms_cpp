@@ -1,3 +1,4 @@
+//#dvir.opa@gmail.com
 #ifndef EDGE_H
 #define EDGE_H
 #include <stdexcept>

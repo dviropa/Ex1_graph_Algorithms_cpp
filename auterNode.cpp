@@ -1,3 +1,4 @@
+//#dvir.opa@gmail.com
 // auterNode.h
 #ifndef AUTERNODE_H
 #define AUTERNODE_H
@@ -90,4 +91,4 @@ int auterNode::get_weight(int u, int v) {
 
   
 
-#endif // AUTERNODE_H
+#endif

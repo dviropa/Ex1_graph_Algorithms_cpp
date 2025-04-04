@@ -1,3 +1,5 @@
+//#dvir.opa@gmail.com
+
 #ifndef GRAPH_H
 #define GRAPH_H
 
@@ -40,6 +42,6 @@ namespace graph {
     };
 
 
-} // namespace graph
+}
 
-#endif // GRAPH_H
+#endif

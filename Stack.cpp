@@ -1,6 +1,6 @@
-//
-// Created by דביר on 3/23/2025.
-//
+//#dvir.opa@gmail.com
+#include <stdexcept>
+
 
 #include "Stack.h"
 Stack::~Stack() {

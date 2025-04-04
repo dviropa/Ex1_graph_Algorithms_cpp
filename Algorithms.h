@@ -1,3 +1,4 @@
+//#dvir.opa@gmail.com
 #ifndef ALGORITHMS_H
 #define ALGORITHMS_H
 #include <stdexcept>
@@ -31,6 +32,6 @@ namespace graph {
         static Graph kruskal(Graph& g);
     };
 
-} // namespace graph
+}
 
-#endif // ALGORITHMS_H
+#endif
