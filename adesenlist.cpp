@@ -70,7 +70,7 @@ int adesenlist::get_weight(int u, int v) {
     return INT_MAX; // צומת לא נמצא
 }
 
-      int* adesenlist::get_neighbors(int x) {
+int* adesenlist::get_neighbors(int x) {
     auterNode* curr = this->list;
     while (curr && curr->num != x) {
         curr = curr->next;
@@ -117,8 +117,6 @@ int adesenlist::get_weight(int u, int v) {
                                 Edge e = edgeIter->e;
                                 int src = e.getSrc();
                                 int dest = e.getDest();
-
-                                // נוודא שזו לא כפילות: נוסיף רק אם src < dest
                                 if (src < dest) {
                                         edges[count++] = e;
                                 }

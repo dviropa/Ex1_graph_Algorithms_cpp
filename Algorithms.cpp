@@ -20,8 +20,6 @@ namespace graph {
     while (!q.isEmpty()) {
         int current = q.peek();
         q.pop();
-        std::cout << current << " ";
-
         int* neighbors = g.get_neighbors(current);
         int i = 0;
         while (neighbors[i] != -1) {

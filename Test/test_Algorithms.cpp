@@ -19,7 +19,7 @@ using namespace graph;
 //     g.addEdge(2, 4, 10);
 //     Graph shortestPaths = Algorithms::dijKstra(g, 0);
 
-//     Graph expected(5);
+//     Graph expected(6);
 //     expected.addEdge(0, 5, 1);
 //     expected.addEdge(5, 1, 1);
 //     expected.addEdge(1, 3, 1);
@@ -62,7 +62,7 @@ using namespace graph;
 
 //     Graph mst = Algorithms::kruskal(g);
 
-//     Graph expected(4);
+//     Graph expected(5);
 //     expected.addEdge(1, 2, 3);
 //     expected.addEdge(1, 4, 5);
 //     expected.addEdge(0, 1, 2);

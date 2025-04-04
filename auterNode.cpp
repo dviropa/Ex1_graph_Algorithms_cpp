@@ -26,14 +26,18 @@ namespace graph {
             if (l) l->removeinerNode(e);
         }
 
-        int auterNode::get_weight(int u, int v) {
-            inerNode* temp1 = this->l;
-            while (temp1->next!=nullptr) {
-              temp1 = temp1->next;
-            }
-
-            return temp1->get_weight(u, v);
+int auterNode::get_weight(int u, int v) {
+    inerNode* temp1 = this->l;
+    while (temp1 != nullptr) {
+        int w = temp1->get_weight(u, v);
+        if (w != INT_MAX) {
+            return w;
         }
+        temp1 = temp1->next;
+    }
+    return INT_MAX;
+}
+
 
         void auterNode::printEdges() const {
             std::cout << "Node " << num << ": ";
