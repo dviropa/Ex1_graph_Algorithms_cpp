@@ -41,7 +41,7 @@ void Graph::addEdge(int source, int target, int val) {
             while (neighbor != nullptr) {
                 Edge e = neighbor->e;
                 if (e.getSrc() < e.getDest()) {
-                    caount++:
+                    caount++;
                 }
                 neighbor = neighbor->next;
             }

@@ -106,8 +106,18 @@ int* adesenlist::get_neighbors(int x) {
         Edge* adesenlist::get_all_edges(int& count) {
                 count = 0;
                 const int MAX_EDGES = 1000;
+        int caount=0;
+            auterNode* temp = list;
 
-                Edge* edges = new Edge[MAX_EDGES];
+                while (temp) {
+                        inerNode* edgeIter = temp->l;
+                        while (edgeIter) {
+                                caount++;
+                                edgeIter = edgeIter->next;
+                        }
+                        temp = temp->next;
+                }
+                Edge* edges = new Edge[caount];
 
                 auterNode* currNode = list;
 
