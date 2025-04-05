@@ -73,7 +73,7 @@ int auterNode::get_weight(int u, int v) {
                 bool found = false;
                 temp2 = other.l;
                 while (temp2) {
-                    if (temp1->e == temp2->e) {
+                    if (temp1->e == temp2->e&&temp1->e.getWeight() == temp2->e.getWeight()) {
                         found = true;
                         break;
                     }

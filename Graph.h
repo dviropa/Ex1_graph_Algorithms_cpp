@@ -17,7 +17,7 @@ namespace graph {
 
 
 
-        void removeEdgeFromNode(int source, int target) ;
+        void addEdge_one_side(int source, int target, int val);
     public:
         explicit Graph(int num_points);
 
