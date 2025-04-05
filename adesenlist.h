@@ -21,7 +21,6 @@ namespace graph {
         int get_weight(int u,int v);
         int* get_neighbors(int x);
         Edge* get_all_edges(int& count) ;
-        void removeEdge(int source,int target);
         bool operator==(const adesenlist& other) const;
 
     };

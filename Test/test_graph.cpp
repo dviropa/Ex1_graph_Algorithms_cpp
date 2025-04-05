@@ -3,6 +3,8 @@
 #include "doctest.h"
 
 #include "../Graph.h"
+#include <climits>
+
 using namespace graph;
 
 TEST_CASE("Testing graph creation and adding edges") {
@@ -41,16 +43,6 @@ TEST_CASE("Graph comparison") {
 }
 
 
-
-
-TEST_CASE("Graph edge removal") {
-    Graph g(3);
-    g.addEdge(0, 1, 5);
-    g.removeEdge(0, 1);
-
-    CHECK_THROWS(g.get_weight(0, 1));
-    CHECK_THROWS(g.get_weight(1, 0));
-}
 
 TEST_CASE("Graph get_neighbors returns correct neighbors") {
     Graph g(4);

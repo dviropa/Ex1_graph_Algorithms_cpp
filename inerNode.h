@@ -16,7 +16,6 @@ namespace graph {
         explicit inerNode(const Edge& edge);
 
         void addinerNode(const Edge& e);
-        void removeinerNode(const Edge& e);
         void printEdges() const;
         int get_weight(int u, int v);
 

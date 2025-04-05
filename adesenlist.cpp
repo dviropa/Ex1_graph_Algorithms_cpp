@@ -137,10 +137,7 @@ int* adesenlist::get_neighbors(int x) {
                 return edges;
         }
 
-        void adesenlist:: removeEdge(int s,int t) {
-                Edge e= {s,t,0};
-                list->removeEdge(e);
-        }
+
 
         bool adesenlist::operator==(const adesenlist& other) const {
                 auterNode* curr1 = this->list;

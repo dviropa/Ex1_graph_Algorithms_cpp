@@ -16,7 +16,6 @@ public:
     explicit auterNode(int n);
 
     void addEdge(const Edge& e);
-    void removeEdge(const Edge& e);
     void printEdges() const;
     int get_weight(int u, int v);
 

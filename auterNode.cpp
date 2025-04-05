@@ -21,9 +21,7 @@ void auterNode::addEdge(const Edge& e) {
 
 
         
-        void auterNode::removeEdge(const Edge& e) {
-            if (l) l->removeinerNode(e);
-        }
+
 
 int auterNode::get_weight(int u, int v) {
     inerNode* temp1 = this->l;

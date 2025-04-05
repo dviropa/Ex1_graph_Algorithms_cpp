@@ -24,33 +24,6 @@ namespace graph {
         temp->next = new inerNode(edge);
     }
 
-    void inerNode::removeinerNode(const Edge& edge) {
-        inerNode* curr = this;
-        inerNode* prev = nullptr;
-
-        while (curr != nullptr && !(curr->e == edge)) {
-            prev = curr;
-            curr = curr->next;
-        }
-
-        if (curr != nullptr) {
-            if (prev != nullptr) {
-                prev->next = curr->next;
-                delete curr;
-            } else {
-                if (curr->next != nullptr) {
-                    inerNode* nextNode = curr->next;
-                    curr->e = nextNode->e;
-                    curr->next = nextNode->next;
-                    delete nextNode;
-                } else {
-
-                    curr->e = Edge();
-                    curr->next = nullptr;
-                }
-            }
-        }
-    }
 
     int inerNode::get_weight(int u, int v) {
         inerNode* temp = this;

@@ -17,9 +17,7 @@ namespace graph {
         adesenList.addEdge(source, target, val);
     }
 
-    void Graph::removeEdgeFromNode(int source, int target) {
-        adesenList.removeEdge(source, target);
-    }
+
 
 void Graph::addEdge(int source, int target, int val) {
     if (source < 0 || source >= num_of_points) {
@@ -65,10 +63,7 @@ void Graph::addEdge(int source, int target, int val) {
         return edges;
     }
 
-    void Graph::removeEdge(int source, int target) {
-        removeEdgeFromNode(source, target);
-        removeEdgeFromNode(target, source);
-    }
+
 
     int Graph::get_weight(int u, int v) {
           if (u < 0 || u >= num_of_points) {
