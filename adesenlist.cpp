@@ -7,6 +7,12 @@
 #include <climits>
 
 
+//adjacency list implementation for representing a graph.
+//It consists of a linked list of primary nodes (auterNode)
+//Each auterNode represents a vertex and stores its number (num)
+//Each auterNode points to a linked list of neighbors (inerNode)
+//Each inerNode contains a single edge that originates from the auterNode
+
 
 namespace graph {
 
@@ -136,7 +142,6 @@ int* adesenlist::get_neighbors(int x) {
                 }
                 return edges;
         }
-
 
 
         bool adesenlist::operator==(const adesenlist& other) const {

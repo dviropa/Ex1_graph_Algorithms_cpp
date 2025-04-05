@@ -19,10 +19,6 @@ void auterNode::addEdge(const Edge& e) {
     }
 }
 
-
-        
-
-
 int auterNode::get_weight(int u, int v) {
     inerNode* temp1 = this->l;
     while (temp1 != nullptr) {
